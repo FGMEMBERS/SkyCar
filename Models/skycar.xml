@@ -1,0 +1,1269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <path>skycar.ac</path>
+
+  <nasal>
+    <load>
+      var livery_update = aircraft.livery_update.new("Aircraft/SkyCar/Models/Liveries", 10);
+
+      var self = cmdarg();
+
+      var float_0 = self.getNode("sim/multiplay/generic/float[0]", 1);
+      var float_1 = self.getNode("sim/multiplay/generic/float[1]", 1);
+      
+      var crew_door = self.getNode("instrumentation/doors/crew/position-norm", 1);
+      var passenger_door = self.getNode("instrumentation/doors/passenger/position-norm", 1);
+    
+      crew_door.alias(float_0);
+      passenger_door.alias(float_1);
+    </load>
+
+    <unload>
+      livery_update.stop();
+      crew_door.unalias();
+      passenger_door.unalias();
+    </unload>
+  </nasal>
+
+  <animation>
+    <!-- Objets opaques -->
+    <object-name>fuselage</object-name>
+    <object-name>centreAG</object-name>
+    <object-name>centreAD</object-name>
+    <object-name>centreBG</object-name>
+    <object-name>centreBD</object-name>
+    <object-name>entremoteursA</object-name>
+    <object-name>entremoteursB</object-name>
+    <object-name>ailes</object-name>
+    <object-name>moteurAG</object-name>
+    <object-name>moteurAD</object-name>
+    <object-name>moteurBG</object-name>
+    <object-name>moteurBD</object-name>
+    <object-name>directionAG</object-name>
+    <object-name>directionAD</object-name>
+    <object-name>directionBG</object-name>
+    <object-name>directionBD</object-name>
+    <object-name>caches</object-name>
+    <object-name>tourvitres</object-name>
+    <object-name>axes</object-name>
+
+    <object-name>axeAH</object-name>
+    <object-name>axeAB</object-name>
+    <object-name>ailettesAG1</object-name>
+    <object-name>ailettesAG2</object-name>
+    <object-name>ailettesAG3</object-name>
+    <object-name>ailettesAG4</object-name>
+    <object-name>ailettesAG5</object-name>
+    <object-name>ailettesAG6</object-name>
+    <object-name>ailettesAG7</object-name>
+    <object-name>ailettesAG8</object-name>
+    <object-name>ailettesAG9</object-name>
+    <object-name>ailettesAD1</object-name>
+    <object-name>ailettesAD2</object-name>
+    <object-name>ailettesAD3</object-name>
+    <object-name>ailettesAD4</object-name>
+    <object-name>ailettesAD5</object-name>
+    <object-name>ailettesAD6</object-name>
+    <object-name>ailettesAD7</object-name>
+    <object-name>ailettesAD8</object-name>
+    <object-name>ailettesAD9</object-name>
+    <object-name>ailettesBG1</object-name>
+    <object-name>ailettesBG2</object-name>
+    <object-name>ailettesBG3</object-name>
+    <object-name>ailettesBG4</object-name>
+    <object-name>ailettesBG5</object-name>
+    <object-name>ailettesBG6</object-name>
+    <object-name>ailettesBG7</object-name>
+    <object-name>ailettesBG8</object-name>
+    <object-name>ailettesBG9</object-name>
+    <object-name>ailettesBD1</object-name>
+    <object-name>ailettesBD2</object-name>
+    <object-name>ailettesBD3</object-name>
+    <object-name>ailettesBD4</object-name>
+    <object-name>ailettesBD5</object-name>
+    <object-name>ailettesBD6</object-name>
+    <object-name>ailettesBD7</object-name>
+    <object-name>ailettesBD8</object-name>
+    <object-name>ailettesBD9</object-name>
+    <object-name>trous</object-name>
+    <object-name>heliceAG</object-name>
+    <object-name>heliceAD</object-name>
+    <object-name>heliceBG</object-name>
+    <object-name>heliceBD</object-name>
+    <object-name>trousAG</object-name>
+    <object-name>trousAD</object-name>
+    <object-name>trousBG</object-name>
+    <object-name>trousBD</object-name>
+    <object-name>roueA</object-name>
+    <object-name>roueG</object-name>
+    <object-name>roueD</object-name>
+
+    <!-- Objets transparents -->
+    <object-name>vitres</object-name>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>fuselage</object-name>
+    <object-name>centreAG</object-name>
+    <object-name>centreAD</object-name>
+    <object-name>centreBG</object-name>
+    <object-name>centreBD</object-name>
+    <object-name>entremoteursA</object-name>
+    <object-name>entremoteursB</object-name>
+    <object-name>ailes</object-name>
+    <object-name>moteurAG</object-name>
+    <object-name>moteurAD</object-name>
+    <object-name>moteurBG</object-name>
+    <object-name>moteurBD</object-name>
+    <object-name>directionAG</object-name>
+    <object-name>directionAD</object-name>
+    <object-name>directionBG</object-name>
+    <object-name>directionBD</object-name>
+    <object-name>caches</object-name>
+    <object-name>tourvitres</object-name>
+    <object-name>axes</object-name>
+
+    <object-name>axeAH</object-name>
+    <object-name>axeAB</object-name>
+    <object-name>ailettesAG1</object-name>
+    <object-name>ailettesAG2</object-name>
+    <object-name>ailettesAG3</object-name>
+    <object-name>ailettesAG4</object-name>
+    <object-name>ailettesAG5</object-name>
+    <object-name>ailettesAG6</object-name>
+    <object-name>ailettesAG7</object-name>
+    <object-name>ailettesAG8</object-name>
+    <object-name>ailettesAG9</object-name>
+    <object-name>ailettesAD1</object-name>
+    <object-name>ailettesAD2</object-name>
+    <object-name>ailettesAD3</object-name>
+    <object-name>ailettesAD4</object-name>
+    <object-name>ailettesAD5</object-name>
+    <object-name>ailettesAD6</object-name>
+    <object-name>ailettesAD7</object-name>
+    <object-name>ailettesAD8</object-name>
+    <object-name>ailettesAD9</object-name>
+    <object-name>ailettesBG1</object-name>
+    <object-name>ailettesBG2</object-name>
+    <object-name>ailettesBG3</object-name>
+    <object-name>ailettesBG4</object-name>
+    <object-name>ailettesBG5</object-name>
+    <object-name>ailettesBG6</object-name>
+    <object-name>ailettesBG7</object-name>
+    <object-name>ailettesBG8</object-name>
+    <object-name>ailettesBG9</object-name>
+    <object-name>ailettesBD1</object-name>
+    <object-name>ailettesBD2</object-name>
+    <object-name>ailettesBD3</object-name>
+    <object-name>ailettesBD4</object-name>
+    <object-name>ailettesBD5</object-name>
+    <object-name>ailettesBD6</object-name>
+    <object-name>ailettesBD7</object-name>
+    <object-name>ailettesBD8</object-name>
+    <object-name>ailettesBD9</object-name>
+    <object-name>trous</object-name>
+    <object-name>heliceAG</object-name>
+    <object-name>heliceAD</object-name>
+    <object-name>heliceBG</object-name>
+    <object-name>heliceBD</object-name>
+    <object-name>trousAG</object-name>
+    <object-name>trousAD</object-name>
+    <object-name>trousBG</object-name>
+    <object-name>trousBD</object-name>
+    <object-name>roueA</object-name>
+    <object-name>roueG</object-name>
+    <object-name>roueD</object-name>
+
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>texture</texture-prop>
+    <texture>texture.png</texture>
+<!--
+    <diffuse>
+      <red-prop>diffuse/red</red-prop>
+      <green-prop>diffuse/green</green-prop>
+      <blue-prop>diffuse/blue</blue-prop>
+    </diffuse>
+
+    <ambient>
+      <red-prop>ambient/red</red-prop>
+      <green-prop>ambient/green</green-prop>
+      <blue-prop>ambient/blue</blue-prop>
+    </ambient>
+-->
+    <specular>
+      <red-prop>specular/red</red-prop>
+      <green-prop>specular/green</green-prop>
+      <blue-prop>specular/blue</blue-prop>
+    </specular>
+
+    <emission>
+      <red-prop>emission/red</red-prop>
+      <green-prop>emission/green</green-prop>
+      <blue-prop>emission/blue</blue-prop>
+    </emission>
+<!--
+    <shininess>
+      <shininess-prop>shininess</shininess-prop>
+    </shininess>
+-->
+  </animation>
+
+  <effect>
+    <inherits-from>Aircraft/Generic/Effects/Fuselagereflect</inherits-from>
+    <object-name>fuselage</object-name>
+    <object-name>centreAG</object-name>
+    <object-name>centreAD</object-name>
+    <object-name>centreBG</object-name>
+    <object-name>centreBD</object-name>
+    <object-name>entremoteursA</object-name>
+    <object-name>entremoteursB</object-name>
+    <object-name>ailes</object-name>
+    <object-name>moteurAG</object-name>
+    <object-name>moteurAD</object-name>
+    <object-name>moteurBG</object-name>
+    <object-name>moteurBD</object-name>
+    <object-name>directionAG</object-name>
+    <object-name>directionAD</object-name>
+    <object-name>directionBG</object-name>
+    <object-name>directionBD</object-name>
+    <object-name>caches</object-name>
+    <object-name>tourvitres</object-name>
+    <object-name>axes</object-name>
+  </effect>
+
+  <animation>
+    <type>shader</type>
+    <shader>chrome</shader>
+    <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
+    <object-name>vitres</object-name>
+  </animation>
+
+  <animation>
+    <type>noshadow</type>
+    <object-name>vitres</object-name>
+  </animation>
+
+  <!-- Une ombre pour OSG -->
+  <model>
+    <path>Aircraft/SkyCar//Models/shadow.xml</path>
+  </model>
+
+  <!-- Interieur -->
+  <model>
+    <path>Aircraft/SkyCar/Models/Interior/interior.xml</path>
+    <offsets>
+      <x-m> 0 </x-m>
+      <y-m> 0 </y-m>
+      <z-m> 0 </z-m>
+    </offsets>
+  </model>
+
+  <animation>
+    <name>MoteurAvantGauche</name>
+    <object-name>centreAG</object-name>
+    <object-name>moteurAG</object-name>
+    <object-name>directionAG</object-name>
+    <object-name>ailettesAG1</object-name>
+    <object-name>ailettesAG2</object-name>
+    <object-name>ailettesAG3</object-name>
+    <object-name>ailettesAG4</object-name>
+    <object-name>ailettesAG5</object-name>
+    <object-name>ailettesAG6</object-name>
+    <object-name>ailettesAG7</object-name>
+    <object-name>ailettesAG8</object-name>
+    <object-name>ailettesAG9</object-name>
+    <object-name>heliceAG</object-name>
+    <object-name>trousAG</object-name>
+  </animation>
+
+  <animation>
+    <name>MoteurAvantDroit</name>
+    <object-name>centreAD</object-name>
+    <object-name>moteurAD</object-name>
+    <object-name>directionAD</object-name>
+    <object-name>ailettesAD1</object-name>
+    <object-name>ailettesAD2</object-name>
+    <object-name>ailettesAD3</object-name>
+    <object-name>ailettesAD4</object-name>
+    <object-name>ailettesAD5</object-name>
+    <object-name>ailettesAD6</object-name>
+    <object-name>ailettesAD7</object-name>
+    <object-name>ailettesAD8</object-name>
+    <object-name>ailettesAD9</object-name>
+    <object-name>heliceAD</object-name>
+    <object-name>trousAD</object-name>
+  </animation>
+
+  <animation>
+    <name>MoteurArriereGauche</name>
+    <object-name>centreBG</object-name>
+    <object-name>moteurBG</object-name>
+    <object-name>directionBG</object-name>
+    <object-name>ailettesBG1</object-name>
+    <object-name>ailettesBG2</object-name>
+    <object-name>ailettesBG3</object-name>
+    <object-name>ailettesBG4</object-name>
+    <object-name>ailettesBG5</object-name>
+    <object-name>ailettesBG6</object-name>
+    <object-name>ailettesBG7</object-name>
+    <object-name>ailettesBG8</object-name>
+    <object-name>ailettesBG9</object-name>
+    <object-name>ailettesBG</object-name>
+    <object-name>heliceBG</object-name>
+    <object-name>trousBG</object-name>
+  </animation>
+
+  <animation>
+    <name>MoteurArriereDroit</name>
+    <object-name>centreBD</object-name>
+    <object-name>moteurBD</object-name>
+    <object-name>directionBD</object-name>
+    <object-name>ailettesBD1</object-name>
+    <object-name>ailettesBD2</object-name>
+    <object-name>ailettesBD3</object-name>
+    <object-name>ailettesBD4</object-name>
+    <object-name>ailettesBD5</object-name>
+    <object-name>ailettesBD6</object-name>
+    <object-name>ailettesBD7</object-name>
+    <object-name>ailettesBD8</object-name>
+    <object-name>ailettesBD9</object-name>
+    <object-name>heliceBD</object-name>
+    <object-name>trousBD</object-name>
+  </animation>
+
+  <!-- Rotation des helices des reacteurs -->
+  <animation>
+    <type>spin</type>
+    <object-name>heliceAG</object-name>
+    <property>controls/engines/engine[0]/throttle</property>
+    <factor> 200 </factor>
+    <center>
+      <x-m> -1.933 </x-m>
+      <y-m> -0.729 </y-m>
+      <z-m> -0.407 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>heliceAD</object-name>
+    <property>controls/engines/engine[1]/throttle</property>
+    <factor> 200 </factor>
+    <center>
+      <x-m> -1.933 </x-m>
+      <y-m>  0.729 </y-m>
+      <z-m> -0.407 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>heliceBG</object-name>
+    <property>controls/engines/engine[2]/throttle</property>
+    <factor> 200 </factor>
+    <center>
+      <x-m>  1.111 </x-m>
+      <y-m> -0.963 </y-m>
+      <z-m> -0.077 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>heliceBD</object-name>
+    <property>controls/engines/engine[3]/throttle</property>
+    <factor> 200 </factor>
+    <center>
+      <x-m>  1.111 </x-m>
+      <y-m>  0.963 </y-m>
+      <z-m> -0.077 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <!-- Rotation des moteurs -->
+  <animation>
+    <type>rotate</type>
+    <object-name>MoteurAvantGauche</object-name>
+    <object-name>MoteurAvantDroit</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 40 </factor>
+    <center>
+      <x-m> -1.681 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.407 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>MoteurArriereGauche</object-name>
+    <object-name>MoteurArriereDroit</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 40 </factor>
+    <center>
+      <x-m>  1.326 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.078 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <!-- Les ailettes des moteurs -->
+  <!-- Avant gauche -->
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesAG1</object-name>
+    <property>surface-positions/engines-vector</property> 
+   <factor> 50 </factor>
+    <center>
+      <x-m> -1.500 </x-m>
+      <y-m> -0.729 </y-m>
+      <z-m> -0.620 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesAG2</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m> -1.441 </x-m>
+      <y-m> -0.729 </y-m>
+      <z-m> -0.571 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesAG3</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m> -1.381 </x-m>
+      <y-m> -0.729 </y-m>
+      <z-m> -0.523 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesAG4</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m> -1.322 </x-m>
+      <y-m> -0.729 </y-m>
+      <z-m> -0.475 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesAG5</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m> -1.263 </x-m>
+      <y-m> -0.729 </y-m>
+      <z-m> -0.426 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesAG6</object-name>
+    <property>surface-positions/engines-vector</property>    <factor> 50 </factor>
+    <center>
+      <x-m> -1.203 </x-m>
+      <y-m> -0.729 </y-m>
+      <z-m> -0.378 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesAG7</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m> -1.144 </x-m>
+      <y-m> -0.729 </y-m>
+      <z-m> -0.329 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesAG8</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m> -1.084 </x-m>
+      <y-m> -0.729 </y-m>
+      <z-m> -0.281 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesAG9</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m> -1.025 </x-m>
+      <y-m> -0.729 </y-m>
+      <z-m> -0.232 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <!-- Avant droit -->
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesAD1</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m> -1.500 </x-m>
+      <y-m>  0.729 </y-m>
+      <z-m> -0.620 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesAD2</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m> -1.441 </x-m>
+      <y-m>  0.729 </y-m>
+      <z-m> -0.571 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesAD3</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m> -1.381 </x-m>
+      <y-m>  0.729 </y-m>
+      <z-m> -0.523 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesAD4</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m> -1.322 </x-m>
+      <y-m>  0.729 </y-m>
+      <z-m> -0.475 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesAD5</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m> -1.263 </x-m>
+      <y-m>  0.729 </y-m>
+      <z-m> -0.426 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesAD6</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m> -1.203 </x-m>
+      <y-m>  0.729 </y-m>
+      <z-m> -0.378 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesAD7</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m> -1.144 </x-m>
+      <y-m>  0.729 </y-m>
+      <z-m> -0.329 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesAD8</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m> -1.084 </x-m>
+      <y-m>  0.729 </y-m>
+      <z-m> -0.281 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesAD9</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m> -1.025 </x-m>
+      <y-m>  0.729 </y-m>
+      <z-m> -0.232 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <!-- Arrière gauche -->
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesBG1</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m>  1.543 </x-m>
+      <y-m> -0.963 </y-m>
+      <z-m> -0.289 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesBG2</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m>  1.603 </x-m>
+      <y-m> -0.963 </y-m>
+      <z-m> -0.241 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesBG3</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m>  1.662 </x-m>
+      <y-m> -0.963 </y-m>
+      <z-m> -0.192 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesBG4</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m>  1.721 </x-m>
+      <y-m> -0.963 </y-m>
+      <z-m> -0.144 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesBG5</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m>  1.781 </x-m>
+      <y-m> -0.963 </y-m>
+      <z-m> -0.096 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesBG6</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m>  1.840 </x-m>
+      <y-m> -0.963 </y-m>
+      <z-m> -0.047 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesBG7</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m>  1.900 </x-m>
+      <y-m> -0.963 </y-m>
+      <z-m>  0.001 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesBG8</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m>  1.959 </x-m>
+      <y-m> -0.963 </y-m>
+      <z-m>  0.050 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesBG9</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m>  2.018 </x-m>
+      <y-m> -0.963 </y-m>
+      <z-m>  0.098 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <!-- Arrière droite -->
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesBD1</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m>  1.543 </x-m>
+      <y-m>  0.963 </y-m>
+      <z-m> -0.289 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesBD2</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m>  1.603 </x-m>
+      <y-m>  0.963 </y-m>
+      <z-m> -0.241 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesBD3</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m>  1.662 </x-m>
+      <y-m>  0.963 </y-m>
+      <z-m> -0.192 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesBD4</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m>  1.721 </x-m>
+      <y-m>  0.963 </y-m>
+      <z-m> -0.144 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesBD5</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m>  1.781 </x-m>
+      <y-m>  0.963 </y-m>
+      <z-m> -0.096 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesBD6</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m>  1.840 </x-m>
+      <y-m>  0.963 </y-m>
+      <z-m> -0.047 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesBD7</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m> 1.900 </x-m>
+      <y-m> 0.963 </y-m>
+      <z-m> 0.001 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesBD8</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m> 1.959 </x-m>
+      <y-m> 0.963 </y-m>
+      <z-m> 0.050 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ailettesBD9</object-name>
+    <property>surface-positions/engines-vector</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m> 2.018 </x-m>
+      <y-m> 0.963 </y-m>
+      <z-m> 0.098 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <!-- Rentrée des roues -->
+  <animation>
+    <name>TrainAvant</name>
+    <object-name>axeAH</object-name>
+    <object-name>axeAB</object-name>
+    <object-name>roueA</object-name>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>TrainAvant</object-name>
+    <property>gear/gear[0]/position-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> -85 </dep></entry>
+      <entry><ind> 1 </ind><dep>   0 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m> -2.748 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.526 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <!-- Compression -->
+  <animation>
+    <name>RoueAvant</name>
+    <object-name>roueA</object-name>
+    <object-name>axeAB</object-name>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>RoueAvant</object-name>
+    <property>/gear/gear[0]/compression-norm</property>
+    <interpolation>
+      <entry><ind> 0.00 </ind><dep>  0.02 </dep></entry>
+      <entry><ind> 0.13 </ind><dep>  0.00 </dep></entry>
+      <entry><ind> 1.00 </ind><dep> -0.09 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+
+  <!-- Rotation de la roue avant en fonction de la gouverne de direction -->
+  <animation>
+    <type>rotate</type>
+    <object-name>TrainAvant</object-name>
+    <property>surface-positions/rudder-pos-norm</property>
+    <factor> -30 </factor>
+    <center>
+      <x-m> -2.750 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -1.118 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+
+  <!-- Rotation des roues lors du roulage -->
+  <animation>
+    <type>spin</type>
+    <object-name>roueA</object-name>
+    <property>gear/gear[0]/rollspeed-ms</property>
+    <factor> 30 </factor>
+    <center>
+      <x-m> -2.750 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -1.118 </z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>roueG</object-name>
+    <property>gear/gear[1]/rollspeed-ms</property>
+    <factor> 30 </factor>
+    <center>
+      <x-m>  1.000 </x-m>
+      <y-m> -0.700 </y-m>
+      <z-m> -1.118 </z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>roueD</object-name>
+    <property>gear/gear[2]/rollspeed-ms</property>
+    <factor> 30 </factor>
+    <center>
+      <x-m>  1.000 </x-m>
+      <y-m>  0.700 </y-m>
+      <z-m> -1.118 </z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+  <!-- Canopy -->
+  <animation>
+    <name>CanopeTotale</name>
+    <object-name>vitres</object-name>
+    <object-name>tourvitres</object-name>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>CanopeTotale</object-name>
+    <property>instrumentation/doors/crew/position-norm</property>
+    <factor> 50 </factor>
+    <center>
+      <x-m> -0.506 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.109 </z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+  <!-- direction avant gauche -->
+  <animation>
+    <type>rotate</type>
+    <object-name>directionAG</object-name>
+    <property>surface-positions/rudder-pos-norm</property>
+    <factor> 20 </factor>
+    <axis>
+      <x1-m> -1.473 </x1-m>
+      <y1-m> -0.729 </y1-m>
+      <z1-m> -0.721 </z1-m>
+      <x2-m> -0.798 </x2-m>
+      <y2-m> -0.729 </y2-m>
+      <z2-m> -0.170 </z2-m>
+    </axis>
+  </animation>
+
+  <!-- direction avant droit -->
+  <animation>
+    <type>rotate</type>
+    <object-name>directionAD</object-name>
+    <property>surface-positions/rudder-pos-norm</property>
+    <factor> 20 </factor>
+    <axis>
+      <x1-m> -1.473 </x1-m>
+      <y1-m>  0.729 </y1-m>
+      <z1-m> -0.721 </z1-m>
+      <x2-m> -0.798 </x2-m>
+      <y2-m>  0.729 </y2-m>
+      <z2-m> -0.170 </z2-m>
+    </axis>
+  </animation>
+
+  <!-- direction arriere gauche -->
+  <animation>
+    <type>rotate</type>
+    <object-name>directionBG</object-name>
+    <property>surface-positions/rudder-pos-norm</property>
+    <factor> 20 </factor>
+    <axis>
+      <x1-m>  1.571 </x1-m>
+      <y1-m> -0.963 </y1-m>
+      <z1-m> -0.390 </z1-m>
+      <x2-m>  2.246 </x2-m>
+      <y2-m> -0.963 </y2-m>
+      <z2-m>  0.161 </z2-m>
+    </axis>
+  </animation>
+
+  <!-- direction arriere droit -->
+  <animation>
+    <type>rotate</type>
+    <object-name>directionBD</object-name>
+    <property>surface-positions/rudder-pos-norm</property>
+    <factor> 20 </factor>
+    <axis>
+      <x1-m>  1.571 </x1-m>
+      <y1-m>  0.963 </y1-m>
+      <z1-m> -0.390 </z1-m>
+      <x2-m>  2.246 </x2-m>
+      <y2-m>  0.963 </y2-m>
+      <z2-m>  0.161 </z2-m>
+    </axis>
+  </animation>
+
+</PropertyList>
+

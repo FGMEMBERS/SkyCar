@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <sim include="Nasal/views.xml">
+
+    <author>BARANGER Emmanuel (3D/FDM)</author>
+    <aircraft-version>0.1</aircraft-version>
+    <status>Alpha</status>
+
+    <fuel-fraction>0.8</fuel-fraction>
+
+    <startup>
+     <splash-texture>Aircraft/SkyCar/skycar-splash.png</splash-texture>
+    </startup>
+
+    <sound>
+      <path>Aircraft/SkyCar/Sounds/skycar-sound.xml</path>
+    </sound>
+
+    <model>
+      <path archive="y">Aircraft/SkyCar/Models/skycar.xml</path>
+      <livery>
+        <file type="string">default</file>
+      </livery>
+    </model>
+
+    <multiplay>
+      <chat_display>1</chat_display>
+      <generic> 
+        <int type="int">0</int>  <!-- 0 immat -->
+        <int type="int">0</int>  <!-- 1 immat -->
+        <int type="int">0</int>  <!-- 2 immat -->
+        <int type="int">0</int>  <!-- 3 immat -->
+        <int type="int">0</int>  <!-- 4 immat -->
+        <int type="int">0</int>  <!-- 5 immat -->
+        <int type="bool">0</int> <!-- 6 smoke -->
+        <int type="int">0</int>  <!-- 7 color -->
+        <float n="0" alias="/instrumentation/doors/crew/position-norm"/>
+        <float n="1" alias="/instrumentation/doors/passenger/position-norm"/>
+      </generic>
+    </multiplay>
+
+    <help>
+      <title>SkyCar</title>
+      <key>
+        <name>d</name>
+        <desc>Open/Close canopy</desc>
+      </key>
+    </help>
+
+    <menubar include="Dialogs/skycar-menu.xml"/>
+
+  </sim>
+
+  <yasim>
+    <vg33>
+      <pilot-lb>180</pilot-lb>
+    </vg33>
+  </yasim>
+
+  <input>
+    <keyboard include="Nasal/skycar-keyboard.xml"/>
+  </input>
+ 
+  <nasal>
+    <skycar>
+      <file>Aircraft/SkyCar/Nasal/immat.nas</file>
+      <file>Aircraft/SkyCar/Nasal/liveries.nas</file>
+      <file>Aircraft/SkyCar/Nasal/light.nas</file>
+    </skycar>
+    <doors>
+      <file>Aircraft/SkyCar/Nasal/doors.nas</file>
+    </doors>
+  </nasal>
+
+</PropertyList>
+

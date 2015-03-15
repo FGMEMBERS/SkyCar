@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList include="skycar-base.xml">
+
+  <sim>
+
+    <description>SkyCar (YASim)</description>
+    <flight-model>yasim</flight-model>
+    <aero>skycar-yasim</aero>
+
+  </sim>
+  
+</PropertyList>
